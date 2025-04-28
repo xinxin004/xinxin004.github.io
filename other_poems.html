@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>其他诗词搜索</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function searchPoem() {
+            const query = document.getElementById('search-input').value.trim();
+            if (query) {
+                // 跳转到百度搜索（自动添加"古诗词"关键词）
+                window.open(`https://www.baidu.com/s?wd=${encodeURIComponent(query + ' 古诗词')}`, '_blank');
+            } else {
+                alert('请输入要搜索的诗词、作者或名句');
+            }
+        }
+
+        // 支持按 Enter 键搜索
+        document.getElementById('search-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchPoem();
+            }
+        });
+    </script>
+</head>
+<body>
+    <nav>
+        <a href="index.html">首页</a>
+        <a href="extend.html">拓展延申</a>
+        <a href="other_poems.html">其他诗词</a>
+        <a href="author.html">作者有话说</a>
+    </nav>
+    
+    <div class="container">
+        <div class="search-container">
+            <h1>其他诗词搜索</h1>
+            <p>输入您想查询的诗词、作者或诗句，我们将使用百度为您搜索相关内容</p>
+            
+            <div style="margin: 40px 0;">
+                <input type="text" id="search-input" class="search-box" placeholder="例如：苏轼 定风波">
+                <button class="search-btn" onclick="searchPoem()">百度搜索</button>
+            </div>
+            
+            <div style="margin-top: 50px; text-align: left; max-width: 800px; margin-left: auto; margin-right: auto;">
+                <h3>热门搜索：</h3>
+                <ul style="columns: 2; list-style-type: none; padding: 0;">
+                    <li style="margin: 10px 0;"><a href="#" onclick="document.getElementById('search-input').value='念奴娇·赤壁怀古';searchPoem();">《念奴娇·赤壁怀古》苏轼</a></li>
+                    <li style="margin: 10px 0;"><a href="#" onclick="document.getElementById('search-input').value='定风波';searchPoem();">《定风波》苏轼</a></li>
+                    <li style="margin: 10px 0;"><a href="#" onclick="document.getElementById('search-input').value='水调歌头';searchPoem();">《水调歌头》苏轼</a></li>
+                    <li style="margin: 10px 0;"><a href="#" onclick="document.getElementById('search-input').value='江城子·密州出猎';searchPoem();">《江城子·密州出猎》苏轼</a></li>
+                    <li style="margin: 10px 0;"><a href="#" onclick="document.getElementById('search-input').value='题西林壁';searchPoem();">《题西林壁》苏轼</a></li>
+                    <li style="margin: 10px 0;"><a href="#" onclick="document.getElementById('search-input').value='春宵';searchPoem();">《春宵》苏轼</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
